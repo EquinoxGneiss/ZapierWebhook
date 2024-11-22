@@ -8,14 +8,14 @@
                     <div class="field">
                         <label>Name</label>
                         <div class="control">
-                            <input v-model="formData.name" type="text" name="email" class="input" required>
+                            <input v-model="formData.name" type="text" name="name" class="input" required>
                         </div>
                     </div>
 
                     <div class="field">
                         <label>Company Name</label>
                         <div class="control">
-                            <input v-model="formData.company" type="text" name="number" class="input" required>
+                            <input v-model="formData.company" type="text" name="company" class="input" required>
                         </div>
                     </div>
 
@@ -53,8 +53,8 @@ export default {
     data() {
         return {
             formData: {
-                email: '',
-                number: '',
+                name: '',
+                company: '',
                 details: '',
                 date: '',
             },
@@ -64,8 +64,8 @@ export default {
   async submitForm() {
     const webhookURL = 'https://hooks.zapier.com/hooks/catch/11189691/2r0qe7x/';
     const formData = new URLSearchParams();
-    formData.append('email', this.formData.name);
-    formData.append('number', this.formData.company);
+    formData.append('name', this.formData.name);
+    formData.append('company', this.formData.company);
     formData.append('details', this.formData.details);
     formData.append('date', this.formData.date);
 
